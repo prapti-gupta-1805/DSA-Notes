@@ -13,6 +13,8 @@ public class arrays {
         for (int i = 0; i < 3; i++) {
             System.out.print("Enter marks: ");
             marks[i] = sc.nextInt();
+
+        System.out.print(marks.length); // print length of array
         }
     }
 }
