@@ -48,7 +48,9 @@ public class arrays {
         
         System.out.println("Length of the array: " + marks.length); // Print length of array
 
-        // Array passed as parameter in the function
+        // Array is called by reference as parameter in a function
+
+        
         System.out.print("Enter the key to search: ");
         int key = sc.nextInt();
         linearSearch(marks, key);
