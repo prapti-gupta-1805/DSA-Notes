@@ -1,6 +1,6 @@
 import java.util.*;
 
-public class arrays {
+public class Arrays {
     // Linear search method
     public static void linearSearch(int numbers[], int key) {
         for (int i = 0; i < numbers.length; i++) {
@@ -52,7 +52,31 @@ public class arrays {
     //reverse an array
     //time: O(n)
     //space: O(1)
+    public static void reverse(int numbers[]) {
+        int first=0, last = numbers.length-1;
+        while(first < last) {
+            int temp = numbers[last];
+            numbers[last] = numbers[first];
+            numbers[first] = temp;
+            first++;
+            last--;
+        }
+        System.out.print("Reversed array: ");
+        for (int i = 0; i < numbers.length; i++) {
+            System.out.print(numbers[i] + " ");
+        }
+    }
     
+    //pairing in array
+    public static void pairs(int[] numbers) {
+        for (int i = 0; i < numbers.length; i++) {
+            for (int j = i; j < numbers.length; j++) {
+                System.out.printf("(%d, %d) ", numbers[i], numbers[j]);
+            }
+            System.out.println();
+        }
+    }
+
     public static void main(String[] args) {
     
         // Array creation
@@ -70,7 +94,7 @@ public class arrays {
         
         System.out.println("Length of the array: " + marks.length); // Print length of array
 
-        // Array passed as parameter in the function */
+        // Array passed as parameter in the function
         System.out.print("Enter the key to linear search (on marks[]): "); 
         int key = sc.nextInt();
         linearSearch(marks, key);
@@ -79,5 +103,8 @@ public class arrays {
         System.out.print("Enter the key to binary search (on numbers[]): "); 
         int key1 = sc.nextInt();
         System.out.println("your key was found at index  " + binarySearch(numbers, key1));
+
+        reverse(numbers);
+        pairs(numbers);
     }
 }
