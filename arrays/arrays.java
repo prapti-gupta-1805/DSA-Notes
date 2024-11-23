@@ -28,18 +28,40 @@ public class arrays {
         System.out.println("Smallest number: " + smallest);
     }
 
-    //Binary Search
-    //prerequisite - sorted array
+    // Binary Search
+    // Prerequisite: Sorted array
+    //time: O(log n)
+    public static int binarySearch(int numbers[], int key) {
+        int start = 0, end = numbers.length - 1;
 
+        while (start <= end) {
+            int mid = (start + end) / 2;
+
+            if (numbers[mid] == key) {
+                return mid; // Key found at index mid
+            }
+            if (numbers[mid] < key) { // Search in the right half
+                start = mid + 1;
+            } else { // Search in the left half
+                end = mid - 1;
+            }
+        }
+        return -1; // Key not found
+    }
+
+    //reverse an array
+    //time: O(n)
+    //space: O(1)
+    
     public static void main(String[] args) {
-        int numbers[]= {1,2,3,4,5};
+    
         // Array creation
         //int[] arr = new int[1];
-        //String[] chars = {"a", "b", "c"};
+        int numbers[]= {1,2,3,4,5};
         
         // Input
         Scanner sc = new Scanner(System.in);
-        int[] marks = new int[3];
+        int[] marks = new int[3]; 
         
         for (int i = 0; i < marks.length; i++) {
             System.out.print("Enter marks: ");
@@ -48,12 +70,14 @@ public class arrays {
         
         System.out.println("Length of the array: " + marks.length); // Print length of array
 
-        // Array is called by reference as parameter in a function
-
-        
-        System.out.print("Enter the key to search: ");
+        // Array passed as parameter in the function */
+        System.out.print("Enter the key to linear search (on marks[]): "); 
         int key = sc.nextInt();
         linearSearch(marks, key);
         smallest_largest(marks);
+
+        System.out.print("Enter the key to binary search (on numbers[]): "); 
+        int key1 = sc.nextInt();
+        System.out.println("your key was found at index  " + binarySearch(numbers, key1));
     }
 }
