@@ -77,6 +77,22 @@ public class Arrays {
         }
     }
 
+    //subarrays
+    public static void subarrays(int[] numbers) {
+        int ts=0;
+        for (int i = 0; i < numbers.length; i++) {
+            for (int j = i; j < numbers.length; j++) {
+                for(int k=i;k<=j; k++) {
+                    System.out.print(" " + numbers[k] + " ");
+                }
+                System.out.print("|");
+                ts++;
+            }
+            System.out.println();
+        }
+        System.out.println("total subarrays= " + ts );
+    }
+
     public static void main(String[] args) {
     
         // Array creation
@@ -106,5 +122,6 @@ public class Arrays {
 
         reverse(numbers);
         pairs(numbers);
+        subarrays(numbers);
     }
 }
